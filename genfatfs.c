@@ -142,7 +142,6 @@ static void add2fs_file(const char * filename)
 {
   FILE * f_in;
   FIL f_out;
-  FRESULT res;
   size_t fileSize;
   size_t readSize;
   struct stat stbuf;
@@ -265,7 +264,6 @@ static void populate_fs(char **dopt, int didx, int verbose)
   int i;
   char * pdest;
   struct stat st;
-  FILE * fh;
   int pdir;
 
   for (i = 0; i < didx; i++)
@@ -339,7 +337,6 @@ int main(int argc, char ** argv)
 	int c;
 	int verbose = 0;
   FATFS Fatfs;    /* File system object */
-	FRESULT rc;			/* Result code */
   FILE * fp = NULL;
 
 	struct option longopts[] = {
@@ -440,7 +437,6 @@ int main(int argc, char ** argv)
     printf("Done\n");
   }
 
-finalizer:
   // Unregister volume work area
 	f_mount(0, NULL);
 

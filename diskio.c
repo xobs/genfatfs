@@ -45,7 +45,6 @@ DSTATUS disk_status(BYTE drive)
 DRESULT disk_read(BYTE drive, BYTE* buffer, DWORD sectorNumber, BYTE sectorCount)
 {
   long new_ofs = sectorNumber * _MAX_SS;
-  size_t s;
 
 #ifdef IO_TRACE
   printf("disk_read(%d, %d) = %ld: ", (int)sectorNumber, sectorCount, new_ofs);
